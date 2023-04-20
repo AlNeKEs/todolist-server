@@ -9,7 +9,6 @@ const user = require("../models/user");
 // private
 router.post("/register", async (req, res) => {
   const { username, password, fullname } = req.body;
-  console.log(username, password, fullname);
   if (!username || !password) {
     return res
       .status(400)
@@ -64,7 +63,6 @@ router.post("/login", async (req, res) => {
         .status(400)
         .json({ success: false, message: "incorrect username or password" });
     }
-    console.log(User.username)
     const token = jwt.sign(
       { userID: User._id, username: User.username },
       process.env.ACCESS_TOKEN
