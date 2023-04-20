@@ -20,7 +20,6 @@ router.post("/create", verifyToken, async (req, res) => {
       deadline: deadline,
       createBy: req.userId,
     });
-    console.log(newTodo);
     const saveTodo = await newTodo.save();
     if (saveTodo) {
       return res.status(200).json({ success: true, message: "successful" });
@@ -49,7 +48,6 @@ router.put("/update", verifyToken, async (req, res) => {
     const updateStatus = await todo.findByIdAndUpdate(id, updateData, {
       new: true,
     });
-    console.log(updateStatus);
     return res.json({
       success: true,
       message: "update successful",
@@ -84,7 +82,7 @@ router.get("/detail/:id", verifyToken, async (req, res) => {
     const detail = await todo.find({
       $and: [{ _id: req.params.id }, { createBy: req.userId }],
     });
-    console.log(detail);
+    return res.status(200).json({success: true, detail});
   } catch (e) {
     console.log(e);
     return res
@@ -98,7 +96,6 @@ router.get("/detail/:id", verifyToken, async (req, res) => {
 router.delete("/delete/:id", verifyToken, async (req, res) => {
   try {
     const delStatus = await todo.findByIdAndDelete(req.params.id);
-    console.log(delStatus);
     return res
       .status(201)
       .json({ success: true, message: "delete successful" });
