@@ -1,0 +1,63 @@
+GET http://localhost:3000/api HTTP/1.1
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MzYzMzkyZWI3NTgxMDA0ZTRkM2JjNGIiLCJyb2xlIjoiYWRtaW4iLCJpYXQiOjE2Njc0NDg1Nzd9.pvx4lFLMrxyNaXeinOMcarbJTBVkDh9ttpLge9e3UhI
+
+###
+
+POST http://localhost:3001/api/user/login
+Content-Type: application/json
+
+{
+    "username":"linhle17",
+    "password": "askjdhaskd"
+}
+
+
+###
+POST http://localhost:3001/api/user/register
+Content-Type: application/json
+
+{
+    "username": "linhle17",
+    "password": "askjdhaskd",
+    "fullname": "le dinh quang linh"
+}
+
+###
+POST http://localhost:3001/api/todolist/create HTTP/1.1
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySUQiOiI2NDQwYzA1N2U2ZGZhMmFmMjgwMzA4ZjIiLCJ1c2VybmFtZSI6ImxpbmhsZTE3IiwiaWF0IjoxNjgxOTY1MTU1fQ.nlQ-QwD5D9MgG-iL1pdfJwvw2NYQKwd-kaMx2nj0Cto
+
+{
+    "title": "new 1 title",
+    "discription": "test 1",
+    "deadline": "sunday"
+}
+
+###
+PUT http://localhost:3001/api/todolist/update HTTP/1.1
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySUQiOiI2NDQwYzA1N2U2ZGZhMmFmMjgwMzA4ZjIiLCJ1c2VybmFtZSI6ImxpbmhsZTE3IiwiaWF0IjoxNjgxOTY1MTU1fQ.nlQ-QwD5D9MgG-iL1pdfJwvw2NYQKwd-kaMx2nj0Cto
+
+
+{
+    "id": "6440af4e8f631f6eb5e6ca8d",
+    "title": "dddggggddgg",
+    "discription": "asssssssssassssss",
+    "deadline": "ggggg"
+}
+
+###
+get http://localhost:3001/api/todolist/getAll HTTP/1.1
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySUQiOiI2NDQwYzA1N2U2ZGZhMmFmMjgwMzA4ZjIiLCJ1c2VybmFtZSI6ImxpbmhsZTE3IiwiaWF0IjoxNjgxOTY1MTU1fQ.nlQ-QwD5D9MgG-iL1pdfJwvw2NYQKwd-kaMx2nj0Cto
+
+###
+get http://localhost:3001/api/todolist/detail/6440c108e6dfa2af280308f6 HTTP/1.1
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySUQiOiI2NDQwYzA1N2U2ZGZhMmFmMjgwMzA4ZjIiLCJ1c2VybmFtZSI6ImxpbmhsZTE3IiwiaWF0IjoxNjgxOTY1MTU1fQ.nlQ-QwD5D9MgG-iL1pdfJwvw2NYQKwd-kaMx2nj0Cto
+
+###
+DELETE http://localhost:3001/api/todolist/delete/6440c108e6dfa2af280308f6 HTTP/1.1
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySUQiOiI2NDQwYzA1N2U2ZGZhMmFmMjgwMzA4ZjIiLCJ1c2VybmFtZSI6ImxpbmhsZTE3IiwiaWF0IjoxNjgxOTY1MTU1fQ.nlQ-QwD5D9MgG-iL1pdfJwvw2NYQKwd-kaMx2nj0Cto
