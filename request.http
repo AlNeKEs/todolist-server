@@ -4,21 +4,21 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MzYzM
 
 ###
 
-POST http://localhost:3001/api/user/login
+POST https://todolist-be.onrender.com/api/user/login
 Content-Type: application/json
 
 {
-    "username":"linhle17",
+    "username":"newUser",
     "password": "askjdhaskd"
 }
 
 
 ###
-POST http://localhost:3001/api/user/register
+POST https://todolist-be.onrender.com/api/user/register
 Content-Type: application/json
 
 {
-    "username": "linhle17",
+    "username": "newUser",
     "password": "askjdhaskd",
     "fullname": "le dinh quang linh"
 }

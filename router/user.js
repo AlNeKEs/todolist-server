@@ -70,7 +70,7 @@ router.post("/login", async (req, res) => {
     return res.status(200).json({
       success: true,
       message: "login successful",
-      "access-token": token,
+      "access_token": token,
     });
   } catch (e) {
     res.status(500).json({ success: false, message: "Internal server error" });
