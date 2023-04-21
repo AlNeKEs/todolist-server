@@ -4,6 +4,7 @@ const router = express.Router();
 const argon2 = require("argon2");
 
 const user = require("../models/user");
+const verifyToken = require("../midleware/auth");
 
 // create new user
 // private
@@ -70,10 +71,30 @@ router.post("/login", async (req, res) => {
     return res.status(200).json({
       success: true,
       message: "login successful",
-      "access_token": token,
+      access_token: token,
+      username: User.username,
     });
   } catch (e) {
     res.status(500).json({ success: false, message: "Internal server error" });
+  }
+});
+
+// auth user
+// public
+router.get("/auth", verifyToken, async (req, res) => {
+  try {
+    const authUser = await user.findById(req.userId).select("-password");
+    if (!authUser) {
+      return res
+        .status(400)
+        .json({ success: false, message: "user not found" });
+    }
+    return res.status(200).json({ success: true, authUser });
+  } catch (e) {
+    console.log(e);
+    res
+      .status(500)
+      .status({ success: false, message: "Internal server error" });
   }
 });
 
