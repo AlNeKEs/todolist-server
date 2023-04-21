@@ -15,7 +15,7 @@ router.post("/create", verifyToken, async (req, res) => {
     const newTodo = new todo({
       todoName: title,
       todoDiscription: discription,
-      status: "todo",
+      status: false,
       createAt: new Date(),
       createBy: req.userId,
     });
@@ -34,14 +34,10 @@ router.post("/create", verifyToken, async (req, res) => {
 // update todo
 //private
 router.put("/update", verifyToken, async (req, res) => {
-  const { title, discription, id } = req.body;
-  if (!title) {
-    return res.status(400).json({ success: false, message: "missing title" });
-  }
+  const {id, status } = req.body;
   try {
     const updateData = {
-      todoName: title,
-      todoDiscription: discription,
+      status: status
     };
     const updateStatus = await todo.findByIdAndUpdate(id, updateData, {
       new: true,

@@ -24,14 +24,13 @@ Content-Type: application/json
 }
 
 ###
-POST http://localhost:3001/api/todolist/create HTTP/1.1
+POST https://todolist-be.onrender.com/api/todolist/create HTTP/1.1
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySUQiOiI2NDQwYzA1N2U2ZGZhMmFmMjgwMzA4ZjIiLCJ1c2VybmFtZSI6ImxpbmhsZTE3IiwiaWF0IjoxNjgxOTY1MTU1fQ.nlQ-QwD5D9MgG-iL1pdfJwvw2NYQKwd-kaMx2nj0Cto
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySUQiOiI2NDQxNGQ1ZjgzOWJkNTM0MjM1NTIzYTAiLCJ1c2VybmFtZSI6Im5ld1VzZXIiLCJpYXQiOjE2ODIwNzQ3NTd9.iNtZ_BJeHyMMD54NW2ZErFWhW1v7rRRJ2qvi4bsto4Q
 
 {
     "title": "new 1 title",
-    "discription": "test 1",
-    "deadline": "sunday"
+    "discription": "test 1"
 }
 
 ###
@@ -48,9 +47,9 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySUQiOiI2NDQwY
 }
 
 ###
-get http://localhost:3001/api/todolist/getAll HTTP/1.1
+get https://todolist-be.onrender.com/api/todolist/getAll HTTP/1.1
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySUQiOiI2NDQwYzA1N2U2ZGZhMmFmMjgwMzA4ZjIiLCJ1c2VybmFtZSI6ImxpbmhsZTE3IiwiaWF0IjoxNjgxOTY1MTU1fQ.nlQ-QwD5D9MgG-iL1pdfJwvw2NYQKwd-kaMx2nj0Cto
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySUQiOiI2NDQxNGQ1ZjgzOWJkNTM0MjM1NTIzYTAiLCJ1c2VybmFtZSI6Im5ld1VzZXIiLCJpYXQiOjE2ODIwNzQ3NTd9.iNtZ_BJeHyMMD54NW2ZErFWhW1v7rRRJ2qvi4bsto4Q
 
 ###
 get http://localhost:3001/api/todolist/detail/6440c108e6dfa2af280308f6 HTTP/1.1

@@ -11,7 +11,7 @@ const todoSchema = new schema({
         type: String,
     },
     status:{
-        type: String,
+        type: Boolean,
     },
     createAt: {
         type: Date
