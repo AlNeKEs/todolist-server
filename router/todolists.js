@@ -7,7 +7,7 @@ const todo = require("../models/todo");
 // create todo
 // Private
 router.post("/create", verifyToken, async (req, res) => {
-  const { title, discription, deadline } = req.body;
+  const { title, discription} = req.body;
   if (!title) {
     return res.status(400).json({ success: false, message: "missing title" });
   }
@@ -17,7 +17,6 @@ router.post("/create", verifyToken, async (req, res) => {
       todoDiscription: discription,
       status: "todo",
       createAt: new Date(),
-      deadline: deadline,
       createBy: req.userId,
     });
     const saveTodo = await newTodo.save();
@@ -35,7 +34,7 @@ router.post("/create", verifyToken, async (req, res) => {
 // update todo
 //private
 router.put("/update", verifyToken, async (req, res) => {
-  const { title, discription, deadline, id } = req.body;
+  const { title, discription, id } = req.body;
   if (!title) {
     return res.status(400).json({ success: false, message: "missing title" });
   }
@@ -43,7 +42,6 @@ router.put("/update", verifyToken, async (req, res) => {
     const updateData = {
       todoName: title,
       todoDiscription: discription,
-      deadline: deadline,
     };
     const updateStatus = await todo.findByIdAndUpdate(id, updateData, {
       new: true,

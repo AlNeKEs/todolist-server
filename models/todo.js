@@ -16,9 +16,6 @@ const todoSchema = new schema({
     createAt: {
         type: Date
     },
-    deadline: {
-        type: String
-    },
     createBy: {
         type: schema.Types.ObjectId,
         ref: 'user'
