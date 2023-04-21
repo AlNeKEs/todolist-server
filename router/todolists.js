@@ -7,7 +7,7 @@ const todo = require("../models/todo");
 // create todo
 // Private
 router.post("/create", verifyToken, async (req, res) => {
-  const { title, discription} = req.body;
+  const { title, discription } = req.body;
   if (!title) {
     return res.status(400).json({ success: false, message: "missing title" });
   }
@@ -34,10 +34,10 @@ router.post("/create", verifyToken, async (req, res) => {
 // update todo
 //private
 router.put("/update", verifyToken, async (req, res) => {
-  const {id, status } = req.body;
+  const { id, status } = req.body;
   try {
     const updateData = {
-      status: status
+      status: status,
     };
     const updateStatus = await todo.findByIdAndUpdate(id, updateData, {
       new: true,
@@ -69,14 +69,27 @@ router.get("/getAll", verifyToken, async (req, res) => {
   }
 });
 
-// get detail 1 todo item
+//  search item
 // private
-router.get("/detail/:id", verifyToken, async (req, res) => {
+router.post("/search", verifyToken, async (req, res) => {
+  const { searchValue } = req.body;
   try {
-    const detail = await todo.find({
-      $and: [{ _id: req.params.id }, { createBy: req.userId }],
-    });
-    return res.status(200).json({success: true, detail});
+    if (searchValue === "All") {
+      const searchData = await todo.find({ createBy: req.userId });
+      return res.status(200).json({ success: true, searchData });
+    }
+    if (searchValue === "Done") {
+      const searchData = await todo.find({
+        $and: [{ status: true, createBy: req.userId }],
+      });
+      return res.status(200).json({ success: true, searchData });
+    }
+    if (searchValue === "Notdone") {
+      const searchData = await todo.find({
+        $and: [{ status: false, createBy: req.userId }],
+      });
+      return res.status(200).json({ success: true, searchData });
+    }
   } catch (e) {
     console.log(e);
     return res

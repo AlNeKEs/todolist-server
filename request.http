@@ -26,11 +26,12 @@ Content-Type: application/json
 ###
 POST https://todolist-be.onrender.com/api/todolist/create HTTP/1.1
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySUQiOiI2NDQxNGQ1ZjgzOWJkNTM0MjM1NTIzYTAiLCJ1c2VybmFtZSI6Im5ld1VzZXIiLCJpYXQiOjE2ODIwNzQ3NTd9.iNtZ_BJeHyMMD54NW2ZErFWhW1v7rRRJ2qvi4bsto4Q
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySUQiOiI2NDQxNGQ1ZjgzOWJkNTM0MjM1NTIzYTAiLCJ1c2VybmFtZSI6Im5ld1VzZXIiLCJpYXQiOjE2ODIwODgzNzR9.UoPRXrKiMlcoQa31S-byaRt6HzaPw8nrTa4mD9m9U-c
 
 {
-    "title": "new 1 title",
-    "discription": "test 1"
+    "title": "new 3 title",
+    "discription": "test 3",
+    "status": true
 }
 
 ###
